@@ -11,6 +11,7 @@
 		D41F7117262C13A900EABD58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41F7116262C13A900EABD58 /* ContentView.swift */; };
 		D41F7119262C13AD00EABD58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D41F7118262C13AD00EABD58 /* Assets.xcassets */; };
 		D41F711C262C13AD00EABD58 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D41F711B262C13AD00EABD58 /* Preview Assets.xcassets */; };
+		D41F7126262C14E600EABD58 /* TsuruInpuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41F7125262C14E600EABD58 /* TsuruInpuController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		D41F711B262C13AD00EABD58 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D41F711D262C13AD00EABD58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D41F711E262C13AD00EABD58 /* Tsuru.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tsuru.entitlements; sourceTree = "<group>"; };
+		D41F7125262C14E600EABD58 /* TsuruInpuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TsuruInpuController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				D41F711D262C13AD00EABD58 /* Info.plist */,
 				D41F711E262C13AD00EABD58 /* Tsuru.entitlements */,
 				D41F711A262C13AD00EABD58 /* Preview Content */,
+				D41F7125262C14E600EABD58 /* TsuruInpuController.swift */,
 			);
 			path = Tsuru;
 			sourceTree = "<group>";
@@ -81,6 +84,7 @@
 				D41F710D262C13A900EABD58 /* Sources */,
 				D41F710E262C13A900EABD58 /* Frameworks */,
 				D41F710F262C13A900EABD58 /* Resources */,
+				D473B640262C49720017BA14 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -135,12 +139,33 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D473B640262C49720017BA14 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "killall Tsuru\nmkdir -p \"$HOME/Library/Input Methods/\"\nrm -rf \"$HOME/Library/Input Methods/Tsuru.app\"\ncp -r \"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\" \"$HOME/Library/Input Methods/Tsuru.app\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D41F710D262C13A900EABD58 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D41F7117262C13A900EABD58 /* ContentView.swift in Sources */,
+				D41F7126262C14E600EABD58 /* TsuruInpuController.swift in Sources */,
 				D41F7115262C13A900EABD58 /* TsuruApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +307,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.uwu.inputmethod.Tsuru;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
+				SYMROOT = build;
 			};
 			name = Debug;
 		};

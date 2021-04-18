@@ -2,6 +2,22 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>TISIntendedLanguage</key>
+	<string>zh-Hans</string>
+	<key>tsInputMethodIconFileKey</key>
+	<string>TsuruTrayIcon.png</string>
+	<key>LSBackgroundOnly</key>
+	<true/>
+	<key>tsInputMethodCharacterRepertoireKey</key>
+	<array>
+		<string>Hans</string>
+	</array>
+	<key>InputMethodServerControllerClass</key>
+	<string>$(PRODUCT_MODULE_NAME).TsuruInputController</string>
+	<key>InputMethodConnectionName</key>
+	<string>TsuruIMEConnection
+IMKSampleConnection
+TsuruIMEConnection</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
