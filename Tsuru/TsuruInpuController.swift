@@ -4,6 +4,8 @@ import InputMethodKit
 
 typealias Sender = (IMKTextInput & IMKUnicodeTextInput)
 
+private let notFoundRange = NSMakeRange(NSNotFound, NSNotFound)
+
 class TsuruInputController: IMKInputController {
     private var _originalString: String = "" // what the user typed
     private var _composedString: String = "" // currently selected transliteration candidate
@@ -17,55 +19,69 @@ class TsuruInputController: IMKInputController {
     override func candidates(_ sender: Any!) -> [Any]! {
         return self._candidates
     }
-
     private func castSender(_ sender: Any? = nil) -> Sender {
         guard let downcast = sender as? Sender else {
             return client() as! Sender
         }
         return downcast
     }
-    
     private func writeMarkToClient(_ client: Sender,_ string: String) {
         client.setMarkedText(string,
                              selectionRange: NSMakeRange(0, string.count),
                              replacementRange: NSMakeRange(NSNotFound, NSNotFound))
     }
+    
+    func showCandidates(client tx: Sender, _ input: String!, _ candidates: [String]) {
+        if (candidates.count == 0) {
+            self._composedString = input
+            commitComposition(tx)
+        } else {
+            self._originalString += input
+            let first = candidates.first!
+            self._composedString += first
+            self._candidates = candidates
+            candidatesWindow.update()
+            candidatesWindow.show()
+            writeMarkToClient(tx, first)
+        }
+    }
 
     override func inputText(_ string: String!, client sender: Any!) -> Bool {
-        let IME_HANDLE = true
-        let SYS_HANDLE = false
         let tx = castSender(sender)
         switch string {
-        case "h":
-            self._originalString = string
-            let s = "hello"
-            self._composedString = s
-            self._candidates = ["hello", "h"]
-            writeMarkToClient(tx, s)
-            candidatesWindow.show()
-            candidatesWindow.update()
+        case "h" where !candidatesWindow.isVisible():
+            showCandidates(client: tx, string, ["h", "hello"])
         case "1", "2", "3", "4", "5", "6", "7", "8", "9":
             let n: Int = Int(string)!
             if !candidatesWindow.isVisible() || n > self._candidates.count {
-                fallthrough
+                commitComposition(tx)
+                tx.insertText(string, replacementRange: notFoundRange)
+            } else {
+                self._composedString = self._candidates[n - 1]
+                commitComposition(tx)
             }
-            self._composedString = self._candidates[n - 1]
-            commitComposition(tx)
         case " " where candidatesWindow.isVisible():
             commitComposition(tx)
         default:
-            return SYS_HANDLE
+            commitComposition(tx)
+            tx.insertText(string, replacementRange: notFoundRange)
         }
-        return IME_HANDLE
+        return true
+    }
+    override func candidateSelected(_ candidateString: NSAttributedString!) {
+        self._composedString = candidateString.string
+        commitComposition(client())
     }
     override func commitComposition(_ sender: Any!) {
-        let tx = castSender(sender)
-        tx.insertText(self._composedString)
+        if !self._composedString.isEmpty {
+            let tx = castSender(sender)
+            tx.insertText(self._composedString, replacementRange: notFoundRange)
+        }
 
         self._originalString = ""
         self._composedString = ""
         self._candidates = []
-
+        
         candidatesWindow.hide()
     }
 }

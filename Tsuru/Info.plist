@@ -15,9 +15,7 @@
 	<key>InputMethodServerControllerClass</key>
 	<string>$(PRODUCT_MODULE_NAME).TsuruInputController</string>
 	<key>InputMethodConnectionName</key>
-	<string>TsuruIMEConnection
-IMKSampleConnection
-TsuruIMEConnection</string>
+	<string>org.uwu.inputmethod.Tsuru_Connection</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

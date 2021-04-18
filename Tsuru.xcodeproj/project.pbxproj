@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D41F7115262C13A900EABD58 /* TsuruApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41F7114262C13A900EABD58 /* TsuruApp.swift */; };
-		D41F7117262C13A900EABD58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41F7116262C13A900EABD58 /* ContentView.swift */; };
 		D41F7119262C13AD00EABD58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D41F7118262C13AD00EABD58 /* Assets.xcassets */; };
 		D41F711C262C13AD00EABD58 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D41F711B262C13AD00EABD58 /* Preview Assets.xcassets */; };
 		D41F7126262C14E600EABD58 /* TsuruInpuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41F7125262C14E600EABD58 /* TsuruInpuController.swift */; };
@@ -17,7 +16,6 @@
 /* Begin PBXFileReference section */
 		D41F7111262C13A900EABD58 /* Tsuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tsuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D41F7114262C13A900EABD58 /* TsuruApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TsuruApp.swift; sourceTree = "<group>"; };
-		D41F7116262C13A900EABD58 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D41F7118262C13AD00EABD58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D41F711B262C13AD00EABD58 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D41F711D262C13AD00EABD58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,7 +54,6 @@
 			isa = PBXGroup;
 			children = (
 				D41F7114262C13A900EABD58 /* TsuruApp.swift */,
-				D41F7116262C13A900EABD58 /* ContentView.swift */,
 				D41F7118262C13AD00EABD58 /* Assets.xcassets */,
 				D41F711D262C13AD00EABD58 /* Info.plist */,
 				D41F711E262C13AD00EABD58 /* Tsuru.entitlements */,
@@ -164,7 +161,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D41F7117262C13A900EABD58 /* ContentView.swift in Sources */,
 				D41F7126262C14E600EABD58 /* TsuruInpuController.swift in Sources */,
 				D41F7115262C13A900EABD58 /* TsuruApp.swift in Sources */,
 			);
