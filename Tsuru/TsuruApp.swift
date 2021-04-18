@@ -14,9 +14,10 @@ struct TsuruApp: App {
         server = IMKServer(name: ConnectionName, bundleIdentifier: Bundle.main.bundleIdentifier)
         candidatesWindow = IMKCandidates(server: server, panelType: kIMKSingleRowSteppingCandidatePanel, styleType:kIMKMain)
     }
+    
     var body: some Scene {
         WindowGroup {
+            EmptyView()
         }
     }
 }
-

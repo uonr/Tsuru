@@ -155,7 +155,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "killall Tsuru\nmkdir -p \"$HOME/Library/Input Methods/\"\nrm -rf \"$HOME/Library/Input Methods/Tsuru.app\"\ncp -r \"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\" \"$HOME/Library/Input Methods/Tsuru.app\"\n";
+			shellScript = "killall Tsuru\nmkdir -p \"$HOME/Library/Input Methods/\"\nrm -rf \"$HOME/Library/Input Methods/Tsuru.app\"\nAPP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\ncp -r \"$APP_PATH\" \"$HOME/Library/Input Methods/Tsuru.app\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
