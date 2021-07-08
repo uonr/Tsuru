@@ -17,8 +17,7 @@ struct TsuruApp: App {
     
     var body: some Scene {
         WindowGroup {
-            EmptyView()
-                .opacity(0.0)
+            VStack {}
                 .hidden()
         }
     }

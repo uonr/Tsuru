@@ -5,7 +5,7 @@
 	<key>TISIntendedLanguage</key>
 	<string>zh-Hans</string>
 	<key>tsInputMethodIconFileKey</key>
-	<string>TsuruTrayIcon.png</string>
+	<string>TsuruTrayIcon</string>
 	<key>LSBackgroundOnly</key>
 	<true/>
 	<key>tsInputMethodCharacterRepertoireKey</key>
