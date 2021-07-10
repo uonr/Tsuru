@@ -50,6 +50,7 @@ class TsuruInputController: IMKInputController {
         let tx = castSender(sender)
         switch string {
         case "h" where !candidatesWindow.isVisible():
+
             showCandidates(client: tx, string, ["h", "hello"])
         case "1", "2", "3", "4", "5", "6", "7", "8", "9":
             let n: Int = Int(string)!
